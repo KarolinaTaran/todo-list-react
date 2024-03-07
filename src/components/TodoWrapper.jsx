@@ -1,12 +1,20 @@
 import TodoForm from "./TodoForm";
 import Todo from "./Todo";
-import { useState, useId } from "react";
+import { useState, useEffect } from "react";
 import EditTodoForm from "./EditTodoForm";
 import { v4 as uuidv4 } from "uuid";
 uuidv4();
 
 const TodoWrapper = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(() => {
+    const storedTodos = JSON.parse(localStorage.getItem("todos"));
+    return storedTodos || [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos]);
+
   const addTodo = (todo) => {
     setTodos([
       ...todos,
@@ -17,8 +25,8 @@ const TodoWrapper = () => {
         isEditing: false,
       },
     ]);
-    console.log(todos);
   };
+
   const toggleComplete = (id) => {
     setTodos(
       todos.map((todo) =>
