@@ -1,4 +1,6 @@
 import { useState } from "react";
+import css from "./EditTodoForm.module.css";
+
 const EditTodoForm = ({ editTodo, task }) => {
   const [value, setValue] = useState(task.task);
   const handleSubmit = (e) => {
@@ -10,12 +12,15 @@ const EditTodoForm = ({ editTodo, task }) => {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          className={css.input}
           type="text"
           placeholder="Update the task!"
           value={value}
           onChange={(e) => setValue(e.target.value)}
         />
-        <button type="submit">Update me</button>
+        <button className={css.updateBtn} type="submit">
+          Update me
+        </button>
       </form>
     </div>
   );

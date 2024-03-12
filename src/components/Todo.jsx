@@ -14,10 +14,10 @@ const Todo = ({ task, toggleComplete, deleteTodo, editTodo }) => {
         {task.task}
       </p>
       <div>
-        <FaRegPenToSquare onClick={() => editTodo(task.id)} />
+        <FaRegPenToSquare size={20} onClick={() => editTodo(task.id)} />
       </div>
       <div>
-        <MdDeleteForever onClick={() => deleteTodo(task.id)} />
+        <MdDeleteForever size={20} onClick={() => deleteTodo(task.id)} />
       </div>
     </div>
   );

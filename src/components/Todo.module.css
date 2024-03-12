@@ -1,8 +1,32 @@
 .wrapper {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    border: 5px solid rgb(235, 244, 0);
+}
+
+.wrapper:hover {
+    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .completed {
     text-decoration: line-through;
+    color: #888;
+}
+
+.wrapper p {
+    margin: 0;
+    padding: 0;
+    flex-grow: 1;
+}
+
+.wrapper div {
+    margin-left: 10px;
+    cursor: pointer;
 }
